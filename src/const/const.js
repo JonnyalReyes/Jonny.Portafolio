@@ -1,8 +1,8 @@
 export const studies = [
   {
-    title: "Técnico en desarrollo de software",
-    corporation: "SENA - Montería (Córdoba) ",
-    date: "02/2019 – 12/2019",
+    title: "Ingeniería de Software",
+    corporation: "Universidad Tecnológica de Panamá",
+    date: "01/2022 – Actualidad",
   },
   {
     title: "Desarrollador Front-end React Js",
@@ -21,22 +21,22 @@ export const IconKeys = {
   css: "css",
   javaScript: "javaScript",
   react: "react",
-  astro: "astro",
-  materialUi: "materialUi",
+  //astro: "astro",
+  //materialUi: "materialUi",
   nextjs: "nextjs",
-  redux: "redux",
-  styled: "styled",
+  //redux: "redux",
+  //styled: "styled",
   tailwind: "tailwind",
-  radix: "radix",
-  reactQuery: "reactQuery",
-  typeScript: "typeScript",
-  zustand: "zustand",
+  //radix: "radix",
+  //reactQuery: "reactQuery",
+  //typeScript: "typeScript",
+  //zustand: "zustand",
   git: "git",
   github: "github",
-  stripe: "stripe",
-  shadcn: "shadcn",
-  nodejs: "nodejs",
-  mongodb: "mongodb",
+  //stripe: "stripe",
+  //shadcn: "shadcn",
+  //nodejs: "nodejs",
+  //mongodb: "mongodb",
   vite: "vite",
   // here add more icon keys
 };
@@ -54,10 +54,10 @@ export const skills = [
     title: "JavaScript",
     icon: IconKeys.javaScript,
   },
-  {
+  /*{
     title: "Astro",
     icon: IconKeys.astro,
-  },
+  },*/
   {
     title: "Tailwindcss",
     icon: IconKeys.tailwind,
@@ -79,7 +79,7 @@ export const skills = [
     title: "Github",
     icon: IconKeys.github,
   },
-  {
+  /*{
     title: "Material UI",
     icon: IconKeys.materialUi,
   },
@@ -108,12 +108,12 @@ export const skills = [
   {
     title: "React Query",
     icon: IconKeys.reactQuery,
-  },
+  },*/
   {
     title: "Vite",
     icon: IconKeys.vite,
   },
-  {
+  /*{
     title: "Zustand",
     icon: IconKeys.zustand,
   },
@@ -125,7 +125,7 @@ export const skills = [
   {
     title: "Mongo Db",
     icon: IconKeys.mongodb,
-  },
+  },*/
 ];
 
 export const projects = [
