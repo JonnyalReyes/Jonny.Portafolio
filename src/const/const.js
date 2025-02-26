@@ -38,6 +38,13 @@ export const IconKeys = {
   //nodejs: "nodejs",
   //mongodb: "mongodb",
   vite: "vite",
+  python: "python",
+  java: "java",
+  php: "php",
+  mysql: "mysql",
+  c: "c",
+  sqlserver: "sqlserver",
+  plsql: "plsql",
   // here add more icon keys
 };
 
@@ -126,6 +133,34 @@ export const skills = [
     title: "Mongo Db",
     icon: IconKeys.mongodb,
   },*/
+  {
+    title: "Python",
+    icon: IconKeys.python,
+  },
+  {
+    title: "Java",
+    icon: IconKeys.java,
+  },
+  {
+    title: "PHP",
+    icon: IconKeys.php,
+  },
+  {
+    title: "MySql",
+    icon: IconKeys.mysql,
+  },
+  {
+    title: "C",
+    icon: IconKeys.c,
+  },
+  {
+    title: "Sql Server",
+    icon: IconKeys.sqlserver,
+  },
+  {
+    title: "Pl/Sql",
+    icon: IconKeys.plsql,
+  },
 ];
 
 export const projects = [
