@@ -11,7 +11,7 @@ export const studies = [
   },
   {
     title: "Python Essentials Course",
-    corporation: "Cisco Academy - Remoto",
+    corporation: "Cisco Academy & Python Institute - Remoto",
     date: "10/2024 – 11/2024",
   },
   {
