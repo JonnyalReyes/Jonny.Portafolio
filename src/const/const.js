@@ -5,14 +5,19 @@ export const studies = [
     date: "01/2022 – Actualidad",
   },
   {
-    title: "Desarrollador Front-end React Js",
-    corporation: "Alura Latam - Remoto",
-    date: "04/2023 – 09/2023",
+    title: "Linux Unhatched Course",
+    corporation: "Cisco Academy & NDG - Remoto",
+    date: "10/2024 – 12/2024",
   },
   {
-    title: "Curso profesional de React Js",
-    corporation: "Código facilito - Remoto",
-    date: "04/2023 – 04/2023",
+    title: "Python Essentials Course",
+    corporation: "Cisco Academy - Remoto",
+    date: "10/2024 – 11/2024",
+  },
+  {
+    title: "Database Foundations Course",
+    corporation: "Oracle Academy - Remoto",
+    date: "10/2023 – 12/2023",
   },
 ];
 
