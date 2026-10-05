@@ -6,14 +6,15 @@ import Project from "./Project.astro";
 <section class="section-projects">
   <div class="linear-grandient-1"></div>
   <div class="container-projects">
-    <h2 class="title-projects" id="proyectos">Proyectos destacados</h2>
+    <h2 class="title-projects" id="proyectos" data-lang-es="Proyectos destacados" data-lang-en="Featured Projects">Proyectos destacados</h2>
     <div>
       <ul class="ul-projects">
         {
-          projects.map(({ description, img, link, technologies, title }) => (
+          projects.map(({ description, description_en, img, link, technologies, title }) => (
             <Project
               img={img}
               description={description}
+              description_en={description_en}
               link={link}
               title={title}
               technologies={technologies}

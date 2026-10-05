@@ -1,0 +1,211 @@
+---
+import { achievements } from "../../../const/const";
+---
+
+<section class="section-achievements">
+  <div class="linear-grandient-1"></div>
+  <div class="content-achievements">
+    <h2 class="title-achievements" id="logros" data-lang-es="Logros y Reconocimientos" data-lang-en="Achievements & Recognitions">Logros y Reconocimientos</h2>
+    <div class="grid-achievements">
+      {
+        achievements.map(({ title, title_en, corporation, corporation_en, date, date_en, description, description_en, award, award_en, link }) => (
+          <div class="card-achievement">
+            <div class="card-top">
+              <div class="icon-trophy">
+                <i class="fa-solid fa-trophy"></i>
+              </div>
+              <div class="top-badges">
+                {award && <span class="badge-award" data-lang-es={award} data-lang-en={award_en || award}>{award}</span>}
+                <span class="badge-date" data-lang-es={date} data-lang-en={date_en || date}>{date}</span>
+              </div>
+            </div>
+            <h3 class="achievement-title" data-lang-es={title} data-lang-en={title_en || title}>{title}</h3>
+            <p class="achievement-corp" data-lang-es={corporation} data-lang-en={corporation_en || corporation}>{corporation}</p>
+            {description && <p class="achievement-desc" data-lang-es={description} data-lang-en={description_en || description}>{description}</p>}
+            {link && (
+              <div class="container-link-achievement">
+                <a href={link} target="_blank" rel="noopener noreferrer" class="btn-more">
+                  <span data-lang-es="Ver más" data-lang-en="View more">Ver más</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            )}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-achievements {
+    position: relative;
+    width: 100%;
+    background-color: #111111;
+    overflow: hidden;
+    padding: 30px 0;
+  }
+
+  .linear-grandient-1 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #000, rgba(174, 34, 255, 0.35), #000);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .content-achievements {
+    position: relative;
+    z-index: 1;
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1355px;
+  }
+
+  .title-achievements {
+    font-size: 27px;
+    color: #f6f6f9;
+    font-weight: 800;
+    scroll-margin-top: 80px;
+    padding: 15px 0 30px 0;
+  }
+
+  .grid-achievements {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+    padding-bottom: 20px;
+  }
+
+  .card-achievement {
+    position: relative;
+    background-color: #1a1922;
+    border: 1px solid #2d2b38;
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card-achievement:hover {
+    transform: translateY(-6px);
+    border-color: rgb(174, 34, 255);
+    box-shadow: 0 10px 25px rgba(174, 34, 255, 0.18);
+  }
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    gap: 10px;
+  }
+
+  .top-badges {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .badge-award {
+    display: inline-block;
+    padding: 3px 10px;
+    background: linear-gradient(135deg, rgba(234, 179, 8, 0.22), rgba(249, 115, 22, 0.22));
+    border: 1px solid rgba(234, 179, 8, 0.6);
+    border-radius: 20px;
+    font-size: 12px;
+    color: #fef08a;
+    font-weight: 700;
+    box-shadow: 0 0 10px rgba(234, 179, 8, 0.25);
+  }
+
+  .icon-trophy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: rgba(174, 34, 255, 0.15);
+    border: 1px solid rgba(174, 34, 255, 0.3);
+    color: rgb(174, 34, 255);
+    font-size: 20px;
+  }
+
+  .badge-date {
+    display: inline-block;
+    padding: 4px 12px;
+    background-color: rgba(174, 34, 255, 0.12);
+    border: 1px solid rgba(174, 34, 255, 0.35);
+    border-radius: 20px;
+    font-size: 13px;
+    color: #e9d5ff;
+    font-weight: 600;
+  }
+
+  .achievement-title {
+    font-size: 19px;
+    font-weight: 700;
+    color: #f6f6f9;
+    margin: 0 0 6px 0;
+    line-height: 1.35;
+  }
+
+  .achievement-corp {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgb(174, 34, 255);
+    margin: 0 0 12px 0;
+  }
+
+  .achievement-desc {
+    font-size: 14px;
+    color: #cbd5e1;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .container-link-achievement {
+    margin-top: 18px;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .btn-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 16px;
+    background-color: rgba(174, 34, 255, 0.15);
+    border: 1px solid rgb(174, 34, 255);
+    border-radius: 6px;
+    color: #f6f6f9;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn-more:hover {
+    background-color: rgb(174, 34, 255);
+    transform: translateX(4px);
+    box-shadow: 0 4px 14px rgba(174, 34, 255, 0.4);
+  }
+
+  @media (max-width: 600px) {
+    .grid-achievements {
+      grid-template-columns: 1fr;
+    }
+    .card-achievement {
+      padding: 18px;
+    }
+  }
+</style>

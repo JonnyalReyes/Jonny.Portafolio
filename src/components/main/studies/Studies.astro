@@ -5,16 +5,16 @@ import { studies } from "../../../const/const";
 <section class="section_studies">
   <div class="linear-grandient-1"></div>
   <div class="content_studies">
-    <h3 class="title-studies" id="studies">Estudios y Cursos relevantes</h3>
+    <h3 class="title-studies" id="estudios" data-lang-es="Estudios y Certificaciones" data-lang-en="Education & Certifications">Estudios y Certificaciones</h3>
     <ul class="ul-studies">
       {
-        studies.map(({ date, title, corporation }) => (
+        studies.map(({ date, date_en, title, title_en, corporation, corporation_en }) => (
           <li class="li-studies">
             <span class="circle" />
             <div>
-              <h3>{title}</h3>
-              <p>{corporation}</p>
-              <span>{date}</span>
+              <h3 data-lang-es={title} data-lang-en={title_en || title}>{title}</h3>
+              <p data-lang-es={corporation} data-lang-en={corporation_en || corporation}>{corporation}</p>
+              <span data-lang-es={date} data-lang-en={date_en || date}>{date}</span>
             </div>
           </li>
         ))
@@ -41,7 +41,6 @@ import { studies } from "../../../const/const";
     height: 100%;
     /* background: radial-gradient(at left center, rgba(174, 34, 255, 0.5), transparent , transparent); */
     background: linear-gradient(to top, rgba(174, 34, 255, 0.5), #000);
-    background: ;
     z-index: 0;
   }
   .content_studies {

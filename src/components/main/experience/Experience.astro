@@ -1,0 +1,241 @@
+---
+import { experiences } from "../../../const/const";
+---
+
+<section class="section-experience">
+  <div class="linear-grandient-1"></div>
+  <div class="content-experience">
+    <h2 class="title-experience" id="experiencia" data-lang-es="Experiencia Laboral" data-lang-en="Work Experience">Experiencia Laboral</h2>
+    <div class="timeline-experience">
+      {
+        experiences.map(
+          ({ role, role_en, company, location, location_en, date, date_en, responsibilities, responsibilities_en, technologies, link }) => (
+            <div class="card-experience">
+              <div class="timeline-dot" />
+              <div class="card-header">
+                <div class="role-company">
+                  <h3 class="role-title" data-lang-es={role} data-lang-en={role_en || role}>{role}</h3>
+                  <h4 class="company-title">
+                    {company} <span class="location-tag" data-lang-es={"• " + location} data-lang-en={"• " + (location_en || location)}>• {location}</span>
+                  </h4>
+                </div>
+                <span class="date-badge" data-lang-es={date} data-lang-en={date_en || date}>{date}</span>
+              </div>
+              <ul class="responsibilities-list">
+                {responsibilities.map((item, idx) => (
+                  <li class="responsibility-item" data-lang-es={item} data-lang-en={responsibilities_en?.[idx] || item}>{item}</li>
+                ))}
+              </ul>
+              {technologies && technologies.length > 0 && (
+                <div class="tech-pills">
+                  {technologies.map((tech) => (
+                    <span class="tech-pill">{tech}</span>
+                  ))}
+                </div>
+              )}
+              {link && (
+                <div class="container-link-card">
+                  <a href={link} target="_blank" rel="noopener noreferrer" class="btn-more">
+                    <span data-lang-es="Ver más" data-lang-en="View more">Ver más</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                  </a>
+                </div>
+              )}
+            </div>
+          )
+        )
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-experience {
+    position: relative;
+    width: 100%;
+    background-color: #111111;
+    overflow: hidden;
+    padding: 30px 0;
+  }
+
+  .linear-grandient-1 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #000, rgba(174, 34, 255, 0.4), #000);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .content-experience {
+    position: relative;
+    z-index: 1;
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1355px;
+  }
+
+  .title-experience {
+    font-size: 27px;
+    color: #f6f6f9;
+    font-weight: 800;
+    scroll-margin-top: 80px;
+    padding: 15px 0 30px 0;
+  }
+
+  .timeline-experience {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    border-left: 2px solid rgba(174, 34, 255, 0.4);
+    margin-left: 10px;
+    padding-left: 30px;
+  }
+
+  .card-experience {
+    position: relative;
+    background-color: #1a1922;
+    border: 1px solid #2d2b38;
+    border-radius: 8px;
+    padding: 24px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card-experience:hover {
+    transform: translateX(6px);
+    border-color: rgb(174, 34, 255);
+    box-shadow: 0 8px 24px rgba(174, 34, 255, 0.15);
+  }
+
+  .timeline-dot {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: rgb(174, 34, 255);
+    border: 3px solid #111111;
+    left: -38px;
+    top: 24px;
+    box-shadow: 0 0 10px rgb(174, 34, 255);
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .role-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #f6f6f9;
+    margin: 0 0 4px 0;
+  }
+
+  .company-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: rgb(174, 34, 255);
+    margin: 0;
+  }
+
+  .location-tag {
+    color: #94a3b8;
+    font-weight: 400;
+    font-size: 14px;
+  }
+
+  .date-badge {
+    display: inline-block;
+    padding: 4px 14px;
+    background-color: rgba(174, 34, 255, 0.15);
+    border: 1px solid rgba(174, 34, 255, 0.4);
+    border-radius: 20px;
+    font-size: 13px;
+    color: #e9d5ff;
+    font-weight: 500;
+  }
+
+  .responsibilities-list {
+    margin: 0 0 16px 0;
+    padding-left: 20px;
+    color: #cbd5e1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .responsibility-item {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .tech-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .tech-pill {
+    font-size: 12px;
+    padding: 3px 10px;
+    background-color: #252433;
+    border: 1px solid #3d3b50;
+    border-radius: 6px;
+    color: #a5b4fc;
+  }
+
+  .container-link-card {
+    margin-top: 18px;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .btn-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    background-color: rgba(174, 34, 255, 0.15);
+    border: 1px solid rgb(174, 34, 255);
+    border-radius: 6px;
+    color: #f6f6f9;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn-more:hover {
+    background-color: rgb(174, 34, 255);
+    transform: translateX(4px);
+    box-shadow: 0 4px 14px rgba(174, 34, 255, 0.4);
+  }
+
+  @media (max-width: 768px) {
+    .timeline-experience {
+      margin-left: 5px;
+      padding-left: 20px;
+    }
+    .timeline-dot {
+      left: -28px;
+    }
+    .card-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .card-experience {
+      padding: 18px;
+    }
+    .role-title {
+      font-size: 19px;
+    }
+  }
+</style>

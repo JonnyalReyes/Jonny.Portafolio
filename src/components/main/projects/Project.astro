@@ -9,20 +9,21 @@ export interface Props {
   title: string;
   img: string;
   description: string;
+  description_en?: string;
   technologies?: Technology[];
   link: string;
 }
 
-const { technologies, title, img, description, link } = Astro.props;
+const { technologies, title, img, description, description_en, link } = Astro.props;
 ---
 
 <li class="li-project">
   <img src={img} alt={title} loading="lazy" />
   <p class="title-project">{title}</p>
-  <p class="description-project">
+  <p class="description-project" data-lang-es={description} data-lang-en={description_en || description}>
     {description}
   </p>
-  <p class="title-technologies">tecnologías usadas</p>
+  <p class="title-technologies" data-lang-es="tecnologías usadas" data-lang-en="technologies used">tecnologías usadas</p>
   <div class="container-technologies">
     {
       technologies.map(({ icon }) => {
@@ -32,7 +33,7 @@ const { technologies, title, img, description, link } = Astro.props;
     }
   </div>
   <div class="container-link-project">
-    <a href={link} target="_blank">Ver más</a>
+    <a href={link} target="_blank" data-lang-es="Ver más" data-lang-en="View more">Ver más</a>
   </div>
 </li>
 

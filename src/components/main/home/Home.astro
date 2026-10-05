@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
-import photoperfil from "../../../../public/img/photo-perfil.webp";
+import photoperfil from "../../../../public/img/photo-perfil.jpeg";
+import { cvLinks } from "../../../const/const";
 ---
 
 <div class="content-presentation">
@@ -10,54 +11,38 @@ import photoperfil from "../../../../public/img/photo-perfil.webp";
     <div class="container-text">
       <!-- <h2 class="text-hello">Hola <strong>soy</strong></h2> -->
       <h2 class="text-name">Jonathan Reyes</h2>
-      <div class="container-profession">
-        <div>
-          <span class="p-profession">D</span>
-          <span class="p-profession">e</span>
-          <span class="p-profession">s</span>
-          <span class="p-profession">a</span>
-          <span class="p-profession">r</span>
-          <span class="p-profession">r</span>
-          <span class="p-profession">o</span>
-          <span class="p-profession">l</span>
-          <span class="p-profession">l</span>
-          <span class="p-profession">a</span>
-          <span class="p-profession">d</span>
-          <span class="p-profession">o</span>
-          <span class="p-profession">r</span>
-          <span class="">&nbsp;</span>
-        </div>
-        <div class="">
-          <span class="p-profession">F</span>
-          <span class="p-profession">u</span>
-          <span class="p-profession">l</span>
-          <span class="p-profession">l</span>
-          <span class="">&nbsp;</span>
-          <span class="p-profession">S</span>
-          <span class="p-profession">t</span>
-          <span class="p-profession">a</span>
-          <span class="p-profession">c</span>
-          <span class="p-profession">k</span>
-          <span class="">&nbsp;</span>
-          <span class="p-profession">J</span>
-          <span class="p-profession">r</span>
-        </div>
-      </div>
-      <p class="p-presentation">
+      <h3
+        class="profession-title"
+        data-lang-es="Desarrollador Full Stack Jr"
+        data-lang-en="Full Stack Developer Jr"
+      >
+        Desarrollador Full Stack Jr
+      </h3>
+      <p
+        class="p-presentation"
+        data-lang-es="Desarrollador full-stack con experiencia en la creación de aplicaciones web, tanto en el front-end como en el back-end. Uso de tecnologías como HTML5, CSS3, JavaScript, y frameworks como React, Next.js y Vite para el front-end, junto con PHP, Java, Python y bases de datos como MySQl, PL/SQL y SQL Server para el back-end. Capaz de transformar diseños creativos en interfaces interactivas y optimizar el rendimiento de las aplicaciones. Apasionado por crear soluciones innovadoras y escalables."
+        data-lang-en="Full-stack developer experienced in building web applications across both front-end and back-end. Proficient in HTML5, CSS3, JavaScript, and frameworks like React, Next.js, and Vite for the front-end, alongside PHP, Java, Python, and databases such as MySQL, PL/SQL, and SQL Server for the back-end. Skilled in transforming creative designs into interactive interfaces and optimizing application performance. Passionate about building innovative and scalable solutions."
+      >
         Desarrollador full-stack con experiencia en la creación de aplicaciones web, tanto en el front-end como en el back-end. Uso de tecnologías como HTML5, CSS3, JavaScript, y frameworks como React, Next.js y Vite para el front-end, junto con PHP, Java, Python y bases de datos como MySQl, PL/SQL y SQL Server para el back-end. Capaz de transformar diseños creativos en interfaces interactivas y optimizar el rendimiento de las aplicaciones. Apasionado por crear soluciones innovadoras y escalables.
       </p>
       <div class="container-curriculum">
-        <a href="https://wa.me/+50762187446" target="_blank" class="a-action"
-          >Hablemos</a
-        >
+        <a href="#contacto" class="a-action" id="hero-contact-btn" data-lang-es="Hablemos" data-lang-en="Let's talk">Hablemos</a>
         <a
-          href="https://drive.google.com/file/d/1BCpvD4uCXuKKZ9jOFme_ytVezkg5H6kR/view?usp=drive_link"
+          href={cvLinks.es}
           class="a-curriculum"
-          target="_blank">Ver CV</a
+          id="cv-main-btn"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-cv-es={cvLinks.es}
+          data-cv-en={cvLinks.en}
+          data-lang-es="Ver CV"
+          data-lang-en="View CV"
         >
+          Ver CV
+        </a>
       </div>
       <div class="container-social">
-        <p class="">Echa un vistaso a mi</p>
+        <p class="" data-lang-es="Echa un vistazo a mi" data-lang-en="Check out my">Echa un vistazo a mi</p>
         <a href="https://github.com/JonnyalReyes" target="_blank">
           <li class="li-social">
             <i class="fa-brands fa-github"></i>
@@ -85,19 +70,35 @@ import photoperfil from "../../../../public/img/photo-perfil.webp";
 </div>
 
 <script>
-  const letters = document.querySelectorAll(".p-profesion");
-  letters.forEach((letter) => {
-    letter.addEventListener("mouseenter", () => {
-      toogle(letter);
-    });
-  });
+  // Sincronización de idioma para botones, textos y enlaces de CV
+  const $cvMainBtn = document.querySelector("#cv-main-btn");
+  const $contactBtn = document.querySelector("#hero-contact-btn");
+  const $socialText = document.querySelector(".container-social p");
+  const $professionTitle = document.querySelector(".profession-title");
 
-  function toogle(letter) {
-    letter.classList.add("bouncing");
-    letter.addEventListener("animationend", () => {
-      letter.classList.remove("bouncing");
-    });
-  }
+  const updateHomeLanguage = (lang) => {
+    if ($cvMainBtn) {
+      const url = lang === "en" ? $cvMainBtn.getAttribute("data-cv-en") : $cvMainBtn.getAttribute("data-cv-es");
+      if (url) $cvMainBtn.setAttribute("href", url);
+      $cvMainBtn.textContent = lang === "en" ? "View CV" : "Ver CV";
+    }
+    if ($contactBtn) {
+      $contactBtn.textContent = lang === "en" ? "Let's talk" : "Hablemos";
+    }
+    if ($socialText) {
+      $socialText.textContent = lang === "en" ? "Check out my" : "Echa un vistazo a mi";
+    }
+    if ($professionTitle) {
+      $professionTitle.textContent = lang === "en" ? "Full Stack Developer Jr" : "Desarrollador Full Stack Jr";
+    }
+  };
+
+  const initialLang = localStorage.getItem("portfolio_lang") || "es";
+  updateHomeLanguage(initialLang);
+
+  window.addEventListener("languageChange", (e) => {
+    updateHomeLanguage(e.detail.lang);
+  });
 </script>
 
 <style>
@@ -162,44 +163,15 @@ import photoperfil from "../../../../public/img/photo-perfil.webp";
     letter-spacing: 1px;
     margin-top: 30px;
   }
-  .container-profession {
-    cursor: pointer;
-    padding: 5px 0;
-  }
-  .p-profession {
-    font-size: 30px;
-    font-weight: 800;
-    cursor: pointer;
-    display: inline-block;
-    text-transform: capitalize;
-    /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
-  }
-
-  .bouncing {
-    transition: 0.8s all;
-    color: rgb(174, 34, 255);
-    animation: rubberband 400ms alternate ease-out;
-  }
-
-  @keyframes rubberband {
-    10% {
-      transform: scaleX(1);
-    }
-    40% {
-      transform: scaleX(1.12) scaleY(0.75);
-    }
-    55% {
-      transform: scaleX(0.85) scaleY(1);
-    }
-    75% {
-      transform: scaleX(0.9) scaleY(1);
-    }
-    90% {
-      transform: scaleX(1.85) scaleY(0.95);
-    }
-    100% {
-      transform: scaleX(1) scaleY(1);
-    }
+  .profession-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #e2e8f0;
+    padding: 6px 0 10px 0;
+    margin: 0;
+    letter-spacing: 0.5px;
+    cursor: default;
+    user-select: text;
   }
 
   .p-presentation {
@@ -319,9 +291,7 @@ import photoperfil from "../../../../public/img/photo-perfil.webp";
     transition: 0.3s;
   }
 
-   {
-    /* responsive*/
-  }
+  /* responsive */
   @media (max-width: 900px) {
     .container-persentation {
       flex-direction: column-reverse;
