@@ -151,8 +151,8 @@ export const experiences = [
     company: "ACNUR (UNHCR) Panamá",
     location: "Panamá",
     location_en: "Panama",
-    date: "2024 – 2025",
-    date_en: "2024 – 2025",
+    date: "Septiembre 2025 – Diciembre 2025",
+    date_en: "September 2025 – December 2025",
     responsibilities: [
       "Participación activa en el programa 'Ciberseguridad para refugiados por refugiados', respaldado por el Fondo de Innovación de ACNUR.",
       "Formación práctica aplicada a la realidad en higiene y autodefensa digital, protección de datos personales y navegación segura para personas en situación de vulnerabilidad.",
